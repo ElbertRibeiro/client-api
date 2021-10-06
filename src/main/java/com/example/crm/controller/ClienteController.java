@@ -10,17 +10,13 @@ import java.util.List;
 
 @RestController @RequestMapping("/clientes") public class ClienteController {
 
-    @Autowired
-    private CLienteRepository cLienteRepository;
+    @Autowired private CLienteRepository cLienteRepository;
 
-    @GetMapping
-    public List<Cliente> listar() {
+    @GetMapping public List<Cliente> listar() {
         return cLienteRepository.findAll();
     }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Cliente adicionar(@RequestBody Cliente cliente) {
+    @PostMapping @ResponseStatus(HttpStatus.CREATED) public Cliente adicionar(@RequestBody Cliente cliente) {
         return cLienteRepository.save(cliente);
     }
 }
